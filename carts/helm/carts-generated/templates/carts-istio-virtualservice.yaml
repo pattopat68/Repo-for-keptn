@@ -14,6 +14,6 @@ spec:
   - route:
     - destination:
         host: carts-canary.keptne2e-staging.svc.cluster.local
-      weight: 100
     - destination:
         host: carts-primary.keptne2e-staging.svc.cluster.local
+      weight: 100
