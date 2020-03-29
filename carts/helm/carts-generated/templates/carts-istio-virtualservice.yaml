@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  creationTimestamp: null
+  name: carts
+spec:
+  gateways:
+  - public-gateway.istio-system
+  - mesh
+  hosts:
+  - carts.keptne2e-staging.34.66.10.32.xip.io
+  - carts
+  http:
+  - route:
+    - destination:
+        host: carts-canary.keptne2e-staging.svc.cluster.local
+    - destination:
+        host: carts-primary.keptne2e-staging.svc.cluster.local
+      weight: 100
